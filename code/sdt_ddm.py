@@ -374,8 +374,10 @@ def compare(trace, dp_data):
                 rt1 = np.array([pdata[mask1][f'p{p}'].values[0] for p in PERCENTILES])
                 rt2 = np.array([pdata[mask2][f'p{p}'].values[0] for p in PERCENTILES])
                 deltas.append(rt2 - rt1)
+                print(deltas)
 
 # Main execution
 if __name__ == "__main__":
     trace, dp_data = analyze("/home/jovyan/Cogs-107-Final/data/data.csv")
     compare(trace, dp_data)
+    
