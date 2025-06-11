@@ -380,4 +380,3 @@ def compare(trace, dp_data):
 if __name__ == "__main__":
     trace, dp_data = analyze("/home/jovyan/Cogs-107-Final/data/data.csv")
     compare(trace, dp_data)
-#DELETE THIS
