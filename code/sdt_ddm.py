@@ -189,7 +189,7 @@ def apply_hierarchical_sdt_model(data):
         mean_d_prime = pm.Normal('mean_d_prime', mu=0.0, sigma=1.0, shape=C)
         stdev_d_prime = pm.HalfNormal('stdev_d_prime', sigma=1.0)
         
-        intercept_d_prime = pm.Normal('intercept_d_prime', mu=0.0, sigma=1.0)
+        intercept_d_prime = pm.Normal('intercept_d_prime', mu=0.0, sigma=1.0) #AI
         stimulus_d_prime = pm.Normal('stimulus_d_prime', mu=0.0, sigma=1.0)
         difficulty_d_prime = pm.Normal('difficulty_d_prime', mu=0.0, sigma=1.0)
         interaction_d_prime = pm.Normal('interaction_d_prime', mu=0.0, sigma=1.0)
@@ -198,7 +198,7 @@ def apply_hierarchical_sdt_model(data):
         mean_criterion = pm.Normal('mean_criterion', mu=0.0, sigma=1.0, shape=C)
         stdev_criterion = pm.HalfNormal('stdev_criterion', sigma=1.0)
         
-        stimulus_criterion = pm.Normal('stimulus_criterion', mu=0.0, sigma=1.0)
+        stimulus_criterion = pm.Normal('stimulus_criterion', mu=0.0, sigma=1.0) #AI
         intercept_criterion = pm.Normal('intercept_criterion', mu=0.0, sigma=1.0)
         difficulty_criterion = pm.Normal('difficulty_criterion', mu=0.0, sigma=1.0)
         interaction_criterion = pm.Normal('interaction_criterion', mu=0.0, sigma=1.0)
@@ -325,11 +325,11 @@ def draw_delta_plots(data, pnum):
             plt.tight_layout()
             
     # Save the figure
-    plt.savefig(OUTPUT_DIR / f'delta_plots_{pnum}.png')
+    plt.savefig(f'delta_plots_{pnum}.png')
 
 def analyze(file_path):
     
-    sdt_data = read_data(file_path, prepare_for='sdt')
+    sdt_data = read_data(file_path, prepare_for='sdt', display=True)
 
     with apply_hierarchical_sdt_model(sdt_data) as model:
         trace = pm.sample(draws = 2000, tune=1000, target_accept=0.9, return_inferencedata=True)
