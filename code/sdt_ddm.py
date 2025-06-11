@@ -338,7 +338,7 @@ def analyze(file_path):
     
     az.plot_trace(trace, var_names=trace_params)
     plt.tight_layout()
-    plt.savefig("plots.png")
+    plt.savefig("summary_plots.png")
     plt.close()
 
     summary = az.summary(trace, var_names=trace_params, hdi_prob=0.95)
